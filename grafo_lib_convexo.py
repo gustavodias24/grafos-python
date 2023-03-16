@@ -29,6 +29,7 @@ def add_novos_nos(nos_anteriores):
     for n in nos_anteriores:
         new_sequence += n
 
+    new_sequence = new_sequence.replace("ATAGTAG", "")
     print(new_sequence)
     # adiciona novos nós ao grafo
     nos = []
@@ -54,6 +55,7 @@ while True:
 
     break
 
+print(nx.is_eulerian(grafo))
 # Desenha o grafo
 plt.figure(2)
 nx.draw_networkx(grafo, pos=nx.spring_layout(grafo), with_labels=True)
