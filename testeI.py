@@ -1,9 +1,11 @@
 import networkx as nx
-import os
-grafo = nx.DiGraph()
-grafo.add_edges_from([(1,2), (2,3), (3,4), (2,5), (5,4)])
 
+# Criar um grafo direcionado de exemplo
+G = nx.DiGraph()
+G.add_edges_from([(1, 2), (1, 3), (2, 4), (3, 4), (3, 5)])
 
-for caminho in [g for g in nx.all_simple_paths(grafo, 1, 5)]:
-    os.system("cls")
-    print(len(caminho))
+# Verificar se o nó 1 tem mais de uma aresta de saída
+if G.out_degree(1) > 1:
+    print("O nó 1 tem mais de uma aresta de saída.")
+else:
+    print("O nó 1 tem no máximo uma aresta de saída.")
